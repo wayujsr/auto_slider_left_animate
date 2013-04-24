@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" async="" src="./Circular, Responsive jQuery Carousel - CarouFredSel_files/ga.js"></script><script type="text/javascript" language="javascript" src="./Circular, Responsive jQuery Carousel - CarouFredSel_files/jquery-1.8.1.min.js"></script>
+<style>
+.image_carousel {
+	padding: 15px 0 15px 40px;
+	position: relative;
+	width:36%;
+	overflow:hidden;
+	height:200px;
+}
+.image_carousel img {
+	border: 1px solid #ccc;
+	background-color: white;
+	padding: 9px;
+	margin: 7px;
+	display: block;
+	float: left;
+}
+a.prev, a.next {
+	background: url(http://caroufredsel.dev7studios.com/images/miscellaneous_sprite.png) no-repeat transparent;
+	width: 45px;
+	height: 50px;
+	display: block;
+	position: absolute;
+	top: 85px;
+}
+a.prev {			left: -22px;
+					background-position: 0 0; }
+a.prev:hover {		background-position: 0 -50px; }
+a.prev.disabled {	background-position: 0 -100px !important;  }
+a.next {			right: -22px;
+					background-position: -50px 0; }
+a.next:hover {		background-position: -50px -50px; }
+a.next.disabled {	background-position: -50px -100px !important;  }
+a.prev.disabled, a.next.disabled {
+	cursor: default;
+}
+
+a.prev span, a.next span {
+	display: none;
+}
+.pagination {
+	text-align: center;
+}
+.pagination a {
+	background: url(http://caroufredsel.dev7studios.com/images/miscellaneous_sprite.png) 0 -300px no-repeat transparent;
+	width: 15px;
+	height: 15px;
+	margin: 0 5px 0 0;
+	display: inline-block;
+}
+.pagination a.selected {
+	background-position: -25px -300px;
+	cursor: default;
+}
+.pagination a span {
+	display: none;
+}
+.clearfix {
+	float: none;
+	clear: both;
+}
+
+</style>
+<script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<input type="hidden" value="pawan" id="get_val" />
+<div class="image_carousel">
+	<div id="foo2" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; height: 174px; z-index: auto;">
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/basketball.jpg" alt="basketball" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/beachtree.jpg" alt="beachtree" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/cupcackes.jpg" alt="cupcackes" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/hangmat.jpg" alt="hangmat" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/new_york.jpg" alt="new york" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/laundry.jpg" alt="laundry" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/mom_son.jpg" alt="mom son" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/picknick.jpg" alt="picknick" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/shoes.jpg" alt="shoes" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/paris.jpg" alt="paris" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/sunbading.jpg" alt="sunbading" width="140" height="140" />
+		<img src="http://caroufredsel.dev7studios.com/examples/images/small/yellow_couple.jpg" alt="yellow couple" width="140" height="140" />
+        <img src="http://caroufredsel.dev7studios.com/examples/images/small/yellow_couple.jpg" alt="yellow couple" width="140" height="140" />
+	</div>
+	<div class="clearfix"></div>
+	<a class="prev" id="foo2_prev" href="#"><span>prev</span></a>
+	<a class="next" id="foo2_next" href="#"><span>next</span></a>
+	<div class="pagination" id="foo2_pag"></div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+$(document).ready(function(){
+	var get_val = $('#get_val').val();
+	//alert(get_val);
+	var n = $("#foo2 img").length;
+	alert(n);
+	var abc = n * 175;
+	$('#foo2').css("width", n * 175)
+	
+	//alert(title);
+		$('#foo2_next').click(function(){
+			var title = $("#foo2").attr("style");
+			var a = title.search("left: -1750px")
+			if(a>0)
+			{
+				$('#foo2').animate({
+					left: '0px',	
+				}, 1000, function() {
+			// Animation complete.
+				});
+			}
+			else
+			{
+				$('#foo2').animate({
+					left: '-=175',	
+				}, 100, function() {
+			// Animation complete.
+				});
+			}
+		});
+		$('#foo2_prev').click(function(){
+			var title = $("#foo2").attr("style");
+			//alert(title);
+			var a = title.search("left: 0px")
+			if(a>0)
+			{
+				return false;
+			}
+			else
+			{
+			$('#foo2').animate({
+				left: '+=175',	
+			}, 100, function() {
+		// Animation complete.
+			});
+			}
+		});
+});
+</script>
